@@ -1,0 +1,16 @@
+$nomention
+$onlyIf[$mentioned[1]!=;<@$authorID> Mencione alguém!]
+$argsCheck[>2; <@$authorID> Use no formato .pay @user <quantia>]
+$onlyIf[$getUserVar[moeda;
+$authorID]>=$noMentionMessage; <@$authorID> Seu saldo é insuficiente.]
+$title[💳 | Transferência Bancária]
+$description[<@$authorID> Você Transferiu **$noMentionMessage** Moedas para <@$mentioned[1]>.]
+$addTimestamp
+$color[#C4C923]
+$footerIcon[$authorAvatar]$footer[$username#$discriminator[$authorID]]
+$setUserVar[moeda;$sum[$getUserVar[moeda;
+$mentioned[1]];$noMentionMessage];
+$mentioned[1]]
+$setUserVar[moeda;$sub[$getUserVar[moeda;
+$authorID];$noMentionMessage];
+$authorID]
